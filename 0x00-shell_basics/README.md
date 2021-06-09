@@ -10,3 +10,6 @@
 
 
 3-listfiles displays directory contents in a long format
+
+
+4-listmorefiles displays directory contents in a long format including hidden files.
