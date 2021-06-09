@@ -22,3 +22,6 @@
 
 
 7-movethatfile moves the file betty from /tmp/ to /tmp/holberton.
+
+
+8-firstdelete deletes the file betty from /tmp/holberton.
