@@ -52,3 +52,6 @@
 
 
 102-tree creates the directories welcome/, welcome/to/ and welcome/to/holberton in the current directory.
+
+
+103-commas lists all the files and directories of the current directory, separated by commas (,).
