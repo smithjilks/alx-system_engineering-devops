@@ -16,3 +16,6 @@
 
 
 5-listfilesdigitonly displays directory contents with user and group IDs displayed numerically
+
+
+6-firstdirectory creates a directory named holberton in the /tmp/ directory.
