@@ -25,3 +25,6 @@
 
 
 8-firstdelete deletes the file betty from /tmp/holberton.
+
+
+9-firstdirdeletion deletes the directory holberton that is in the /tmp directory
