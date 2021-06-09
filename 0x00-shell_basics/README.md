@@ -46,3 +46,6 @@
 
 
 100-lets_move  moves all files beginning with an uppercase letter to the directory /tmp/u, assuming that the directory /tmp/u will exist when we will run your script
+
+
+101-clean_emacs deletes all files in the current working directory that end with the character ~
