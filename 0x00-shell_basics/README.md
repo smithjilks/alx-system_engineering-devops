@@ -55,3 +55,6 @@
 
 
 103-commas lists all the files and directories of the current directory, separated by commas (,).
+
+
+holberton.mgc can be used with the command file to detect Holberton data files. Holberton data files always contain the string HOLBERTON at offset 0.
