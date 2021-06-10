@@ -36,3 +36,5 @@
 
 
 13-change_group changes the group owner to holberton for the file hello.
+
+100-change_owner_and_group changes the owner to betty and the group owner to holberton for all the files and directories in the working directory.
