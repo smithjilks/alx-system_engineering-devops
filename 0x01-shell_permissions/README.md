@@ -40,3 +40,5 @@
 100-change_owner_and_group changes the owner to betty and the group owner to holberton for all the files and directories in the working directory.
 
 101-symbolic_link_permissions changes the owner and the group owner of _hello to betty and holberton respectively.
+
+102-if_only changes the owner of the file hello to betty only if it is owned by the user guillaume.
