@@ -40,3 +40,5 @@
     - Input format: One line, one word
     - Output format: One line, one word
     - Words should be sorted
+
+14-findthatword displays lines containing the pattern “root” from the file /etc/passwd
