@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Makes nginx listen to port 80
+sudo apt-get install nginx
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
+sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
