@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# Shows where subdomains point to
 dig_subdomain () {
         RECORD_TYPE=$(dig "$2"."$1" | awk 'BEGIN{OFS=" ";} /^'$2'/{print $4}')
         DESTINATION=$(dig "$2"."$1" | awk 'BEGIN{OFS=" ";} /^'$2'/{print $5}')
