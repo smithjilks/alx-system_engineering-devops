@@ -7,12 +7,13 @@ domain=$1
 subdomain=$2
 sub=( www lb-01 web-01 web-02 )
 
-if [[ $subdomain == "" ]]
+if [ $# -eq 1 ]
 then
 	for x in "${sub[@]}"
 	do
 		dig_subdomain "$domain" "$x"
 	done
-else
+elif [ $# -eq 2 ]
+then
 	dig_subdomain "$domain" "$subdomain"
 fi
