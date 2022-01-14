@@ -7,6 +7,8 @@ global
 	user haproxy
 	group haproxy
 	daemon
+	maxconn 2048
+	tune.ssl.default-dh-param 2048
 
 	# Default SSL material locations
 	ca-base /etc/ssl/certs
@@ -25,6 +27,8 @@ defaults
         timeout connect 5000
         timeout client  50000
         timeout server  50000
+	option forwardfor
+	option http-server-close
 	errorfile 400 /etc/haproxy/errors/400.http
 	errorfile 403 /etc/haproxy/errors/403.http
 	errorfile 408 /etc/haproxy/errors/408.http
@@ -34,15 +38,22 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 frontend 471-lb-01
 	bind *:80
-	mode http
+	reqadd X-Forwarded-Proto:\ http
 	default_backend web-backend
 
-frontend www-https
-        bind *:443 ssl crt /etc/letsencrypt/live/www.smithjilks.tech/fullchain.pem
+frontend 471-lb-01-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.smithjilks.tech.pem
+	reqadd X-Forwarded-Proto:\ https
+   	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+       	use_backend letsencrypt-backend if letsencrypt-acl
         default_backend web-backend
 
 backend web-backend
 	balance roundrobin
-	mode http
-	server 471-web-01 35.231.57.129 check
-	server 471-web-02 3.235.242.158 check
+	option httpchk
+	redirect scheme https if !{ ssl_fc }
+	server 471-web-01 35.231.57.129:80 check
+	server 471-web-02 3.235.242.158:80 check
+
+backend letsencrypt-backend
+   	server letsencrypt 127.0.0.1:54321
