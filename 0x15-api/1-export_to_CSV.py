@@ -2,8 +2,8 @@
 """Script that extends 0-gather_data_from_an_API.py
 to export data in the CSV format. """
 import csv
-import sys
 import requests
+import sys
 
 
 if __name__ == "__main__":
